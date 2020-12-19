@@ -12,7 +12,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <div id="app">
-        <p>{{ sayHi() }}</p>
+        <p>{{ message }}</p>
+        <!--上と同じ意味になる-->
+        <a v-text="message"></a>
     </div>
 
     <script>
@@ -20,11 +22,6 @@
             el: '#app',
             data: {
                 message: 'Hello World!',
-            },
-            methods: {
-                sayHi: function() {
-                    return this.message;
-                }
             }
         })
     </script>
