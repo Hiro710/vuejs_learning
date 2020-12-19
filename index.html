@@ -12,9 +12,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <div id="app">
-        <p>{{ message }}</p>
-        <p>{{ number * 10 }}</p>
-        <p>{{ ok? 'YES' : 'NO' }}</p>
         <p>{{ sayHi() }}</p>
     </div>
 
@@ -23,12 +20,10 @@
             el: '#app',
             data: {
                 message: 'Hello World!',
-                number: 3,
-                ok: true
             },
             methods: {
                 sayHi: function() {
-                    return 'Hi';
+                    return this.message;
                 }
             }
         })
