@@ -12,9 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <div id="app">
-        <p>{{ message }}</p>
-        <!--上と同じ意味になる-->
-        <a v-text="message"></a>
+        <p v-once>{{ message }}</p>
+        <p>{{ sayHi() }}</p>
     </div>
 
     <script>
@@ -22,6 +21,13 @@
             el: '#app',
             data: {
                 message: 'Hello World!',
+            },
+            methods: {
+                sayHi() {
+                    // v-onceディレクティブが働くため、以下のthis.messageは描画されない
+                    this.message = 'Hello VueJS'
+                    return 'Hi'
+                }
             }
         })
     </script>
