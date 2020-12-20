@@ -12,16 +12,21 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <div id="app">
-        <a v-bind:href="url">Google</a>
-        <!--上記と同じ動作-->
-        <a :href="url">Google</a>
+        <a :[attribute]="url">Google</a>
+        <!--v-bindを使ってオブジェクト形式で書くことができる-->
+        <a v-bind="twitterObject">Twitter</a>
     </div>
 
     <script>
         new Vue({
             el: '#app',
             data: {
-                url: 'https://google.com'
+                url: 'https://google.com',
+                attribute: 'href',
+                twitterObject: {
+                    href: 'https://twitter.com',
+                    id: 30
+                }
             }
         })
     </script>
