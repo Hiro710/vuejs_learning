@@ -13,7 +13,7 @@
 
     <div id="app">
         <p>現在{{ number }}回クリックされています</p>
-        <button v-on:[event]="countUp(2)">カウントアップ</button>
+        <button @click="countUp">カウントアップ</button>
 
     </div>
 
@@ -21,12 +21,11 @@
         new Vue({
             el: '#app',
             data: {
-                number: 0,
-                event: 'click'
+                number: 0
             },
             methods: {
-                countUp: function(times) {
-                    this.number += 1 * times
+                countUp: function() {
+                    this.number += 1;
                 }
             }
         })
