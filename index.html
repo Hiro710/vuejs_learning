@@ -13,13 +13,7 @@
 
     <div id="app">
         <p>現在{{ number }}回クリックされています</p>
-        <button v-on:click="countUp(2)">カウントアップ</button>
-        <p v-on:mousemove="changeMousePosition($event, 10)">マウスを載せてください
-            <span v-on:mousemove.stop>反応しないで下さい</span>
-            <a v-on:click.prevent href="https://google.com">Google</a>
-        </p>
-        <p>X:{{ x }}, Y:{{ y }}</p>
-        <input type="text" v-on:keyup.space.enter="myAlert">
+        <button v-on:[event]="countUp(2)">カウントアップ</button>
 
     </div>
 
@@ -28,20 +22,11 @@
             el: '#app',
             data: {
                 number: 0,
-                x: 0,
-                y: 0
+                event: 'click'
             },
             methods: {
                 countUp: function(times) {
                     this.number += 1 * times
-                },
-                changeMousePosition: function(event, divideNumber) {
-                    // マウスの現在地を引数で割った値を取得
-                    this.x = event.clientX / divideNumber;
-                    this.y = event.clientY / divideNumber;
-                },
-                myAlert() {
-                    alert('アラート');
                 }
             }
         })
