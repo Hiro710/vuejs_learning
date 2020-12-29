@@ -19,6 +19,8 @@
             <a v-on:click.prevent href="https://google.com">Google</a>
         </p>
         <p>X:{{ x }}, Y:{{ y }}</p>
+        <input type="text" v-on:keyup.space.enter="myAlert">
+
     </div>
 
     <script>
@@ -37,6 +39,9 @@
                     // マウスの現在地を引数で割った値を取得
                     this.x = event.clientX / divideNumber;
                     this.y = event.clientY / divideNumber;
+                },
+                myAlert() {
+                    alert('アラート');
                 }
             }
         })
