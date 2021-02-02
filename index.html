@@ -13,12 +13,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <div id="app">
-        <template v-if="ok">
-            <p>Hello</p>
-            <p>Good Bye</p>
-            <p>Say Good Bye</p>
-        </template>
         <button @click="ok = !ok">ボタン</button>
+        <p v-if="ok">If</p>
+        <p v-show="ok">Show</p>
     </div>
 
     <script>
