@@ -14,8 +14,12 @@
 
     <div id="app">
         <ul>
-            <li v-for="fruit in fruits">{{ fruit }}</li>
+            <div v-for="fruit in fruits" :key="fruit">
+                <p>{{ fruit }}</p>
+                <input type="text">
+            </div>
         </ul>
+        <button @click="remove">先頭を削除</button>
     </div>
 
     <script>
@@ -23,6 +27,11 @@
             el: '#app',
             data: {
                 fruits: ['りんご', 'バナナ', 'ぶどう']
+            },
+            methods: {
+                remove: function() {
+                    this.fruits.shift()
+                }
             }
         })
     </script>
